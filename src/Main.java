@@ -1,6 +1,7 @@
+import graph.MainGraphNavigation;
 import java.util.Scanner;
 
-//Program utama SIAAKAD.
+//Program utama SIAAKAD
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -19,7 +20,7 @@ public class Main {
                     // Masuk ke program Orang 3.
                     break;
                 case 4:
-                    // Masuk ke program Orang 4.
+                    MainGraphNavigation.start(input);
                     break;
                 case 5:
                     // Masuk ke program Orang 5.
@@ -49,7 +50,7 @@ public class Main {
         System.out.println("==================================================");
     }
 
-    //Membaca angka menu dan mengulang jika input bukan angka.
+    //Membaca angka menu dan mengulang jika input bukan angka
     private static int readInteger(Scanner input, String message) {
         while (true) {
             System.out.print(message);
