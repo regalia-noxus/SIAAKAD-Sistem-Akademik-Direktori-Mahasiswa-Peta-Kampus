@@ -37,7 +37,7 @@ public class MainGraphNavigation {
     //Menampilkan submenu
     private static void showMenu() {
         System.out.println("\n==============================================");
-        System.out.println("       GRAPH - NAVIGASI KAMPUS");
+        System.out.println("       GRAPH - NAVIGASI PETA KAMPUS");
         System.out.println("==============================================");
         System.out.println("1. Tampilkan daftar lokasi kampus");
         System.out.println("2. Tampilkan jalur dan jarak antar lokasi");
