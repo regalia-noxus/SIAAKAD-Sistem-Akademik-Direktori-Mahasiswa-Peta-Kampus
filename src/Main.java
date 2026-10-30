@@ -38,13 +38,13 @@ public class Main {
     //Menampilkan menu utama
     private static void showMainMenu() {
         System.out.println("\n==================================================");
-        System.out.println("                    SIAAKAD");
-        System.out.println("        SISTEM AKADEMIK DAN PETA KAMPUS");
+        System.out.println("                       SIAAKAD");
+        System.out.println("  SISTEM AKADEMIK DIREKTORI MAHASISWA PETA KAMPUS");
         System.out.println("==================================================");
         System.out.println("1. Manajemen Data Mahasiswa (Hash Table)");
         System.out.println("2. Manajemen Nilai Mahasiswa (BST)");
         System.out.println("3. Kalkulator Ekspresi (Tree)");
-        System.out.println("4. Navigasi Kampus (Graph)");
+        System.out.println("4. Navigasi Peta Kampus (Graph)");
         System.out.println("5. Benchmark");
         System.out.println("0. Keluar");
         System.out.println("==================================================");
