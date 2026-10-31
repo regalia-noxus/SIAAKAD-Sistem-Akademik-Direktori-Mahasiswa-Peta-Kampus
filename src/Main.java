@@ -1,3 +1,4 @@
+import bst.MainBST;
 import graph.MainGraphNavigation;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class Main {
                     // Masuk ke program Orang 1.
                     break;
                 case 2:
-                    // Masuk ke program Orang 2.
+                    MainBST.start(input);
                     break;
                 case 3:
                     // Masuk ke program Orang 3.
