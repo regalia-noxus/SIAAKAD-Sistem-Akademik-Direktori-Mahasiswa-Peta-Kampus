@@ -1,3 +1,6 @@
+package Mahasiswa;
+
+// Package mengikuti folder src/Mahasiswa agar class dikenali oleh IDE dan compiler.
 public class Mahasiswa {
     private String nim;
     private String nama;
