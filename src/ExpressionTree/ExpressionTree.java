@@ -1,3 +1,6 @@
+package ExpressionTree;
+
+// Package mengikuti folder src/ExpressionTree agar dapat diimpor dari Main.
 public class ExpressionTree {
     private ExpressionNode root;
 
