@@ -1,3 +1,5 @@
+package Mahasiswa;
+
 import java.util.HashMap;
 import java.util.Map;
 
