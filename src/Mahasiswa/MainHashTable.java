@@ -1,11 +1,21 @@
+package Mahasiswa;
+
 import java.util.Scanner;
 
 public class MainHashTable {
 
+    // Menyimpan data agar tidak hilang ketika pengguna kembali ke menu utama.
+    private static final StudentHashTable dataMahasiswa = new StudentHashTable();
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        StudentHashTable dataMahasiswa = new StudentHashTable();
+        start(input);
+        input.close();
+    }
+
+    // Memakai Scanner milik Main supaya aliran System.in tidak ditutup oleh submenu.
+    public static void start(Scanner input) {
 
         int pilihan = -1;
 
@@ -175,6 +185,6 @@ public class MainHashTable {
 
         } while (pilihan != 0);
 
-        input.close();
+        // Scanner ditutup oleh pemanggil setelah seluruh aplikasi selesai.
     }
 }
