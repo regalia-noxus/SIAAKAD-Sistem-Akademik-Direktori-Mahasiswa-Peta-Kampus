@@ -1,10 +1,10 @@
-import Mahasiswa.Mahasiswa; // Model data mahasiswa berisi NIM, nama, dan IPK.
-import Mahasiswa.StudentHashTable; // Struktur Hash Table untuk pencarian berdasarkan NIM.
-import bst.BinarySearchTree; // Struktur BST untuk menyimpan dan mencari nilai berdasarkan NIM.
-import graph.GraphNavigation; // Struktur Graph untuk lokasi dan hubungan antar gedung.
-import java.util.Arrays; // Mengurutkan hasil durasi sebelum mengambil median.
-import java.util.Collections; // Mengacak urutan data pada List.
-import java.util.List; // Tipe kumpulan data yang dapat diakses berdasarkan indeks.
+import Mahasiswa.Mahasiswa; 
+import Mahasiswa.StudentHashTable; 
+import bst.BinarySearchTree; 
+import graph.GraphNavigation; 
+import java.util.Arrays; 
+import java.util.Collections; 
+import java.util.List; 
 import java.util.ArrayList; // Implementasi List untuk menampung data dummy.
 import java.util.Locale; // Menentukan format angka desimal saat mencetak tabel.
 import java.util.Random; // Menghasilkan angka simulasi dengan seed yang ditentukan.
@@ -204,17 +204,16 @@ public class BenchmarkTest {
         System.out.println("Teori: Hash Table rata-rata O(1), BST O(h), BFS O(V + E).");
     }
 
-    // Mengulang semua target dan menghitung hasil agar operasi pencarian benar-benar digunakan.
-    // search adalah fungsi pencarian yang diuji; repetitions adalah jumlah pengulangan 20 target.
-    // Mengembalikan jumlah pencarian sukses untuk diperiksa setelah pengukuran selesai.
+    // Mengulang semua target dan menghitung hasil agar operasi pencarian benar-benar digunakan
+    // search adalah fungsi pencarian yang diuji; repetitions adalah jumlah pengulangan 20 target
+    // Mengembalikan jumlah pencarian sukses untuk diperiksa setelah pengukuran selesai
     private static int searchAll(IntPredicate search, int repetitions) {
-        // Penghitung direset pada setiap pemanggilan fungsi.
         int found = 0;
         // Loop luar mengatur berapa kali satu kelompok berisi 20 pencarian dijalankan.
         for (int repeat = 0; repeat < repetitions; repeat++) {
-            // Loop dalam memastikan semua 20 target dicari satu kali pada setiap pengulangan.
+            // Loop dalam memastikan semua 20 target dicari satu kali pada setiap pengulangan
             for (int i = 0; i < DATA_COUNT; i++) {
-                // test menjalankan lambda struktur yang dipilih; penghitung bertambah jika ditemukan.
+                // test menjalankan lambda struktur yang dipilih; penghitung bertambah jika ditemukan
                 if (search.test(i)) {
                     found++;
                 }
