@@ -1,9 +1,9 @@
-// Import menghubungkan Main dengan class di package yang sesuai folder modulnya.
-import Mahasiswa.MainHashTable; // Menu mahasiswa milik Anggota 1.
-import ExpressionTree.ExpressionTree; // Pohon ekspresi milik Anggota 3.
-import bst.MainBST; // Menu nilai mahasiswa milik Anggota 2.
-import graph.MainGraphNavigation; // Menu navigasi kampus milik Anggota 4.
-import java.util.Scanner; // Membaca teks yang diketik pengguna melalui keyboard.
+
+import Mahasiswa.MainHashTable; 
+import ExpressionTree.ExpressionTree; 
+import bst.MainBST; 
+import graph.MainGraphNavigation; 
+import java.util.Scanner; 
 
 // Group 3 - Program Studi Computer Science
 // 1. HILMAN WASIANDI KHAIRURRIZAL      | NIM: 2902817490 | Computer Science
@@ -11,11 +11,8 @@ import java.util.Scanner; // Membaca teks yang diketik pengguna melalui keyboard
 // 3. SULAIHA                          | NIM: 2902806442 | Computer Science
 // 4. IRFAN SISWARA                    | NIM: 2902813126 | Computer Science
 // 5. M. AKMAL ZULKARNAEN PRIADI       | NIM: 2902826015 | Computer Science
-// Tugas Anggota 5: integrasi menu, generator 20 data dummy, dan benchmark pencarian.
-// Program utama SIAAKAD menghubungkan modul buatan Anggota 1 sampai 4.
 public class Main {
-    // Titik awal aplikasi saat Main dijalankan; args menampung argumen dari terminal.
-    // static memungkinkan Java memanggil fungsi ini tanpa membuat objek Main terlebih dahulu.
+    // Titik awal aplikasi saat Main dijalankan; args menampung argumen dari terminal. static memungkinkan Java memanggil fungsi ini tanpa membuat objek Main terlebih dahulu.
     public static void main(String[] args) {
         // System.in adalah sumber input keyboard; satu Scanner dipakai bersama oleh submenu.
         Scanner input = new Scanner(System.in);
@@ -30,19 +27,19 @@ public class Main {
             // switch memilih tindakan berdasarkan nomor menu; break mengakhiri case tersebut.
             switch (choice) {
                 case 1:
-                    // Memanggil pengelolaan mahasiswa dengan Hash Table milik Anggota 1.
+                    
                     MainHashTable.start(input);
                     break;
                 case 2:
-                    // Memanggil pengelolaan nilai dengan Binary Search Tree milik Anggota 2.
+                    
                     MainBST.start(input);
                     break;
                 case 3:
-                    // Memakai ExpressionTree milik Anggota 3 untuk menghitung ekspresi postfix.
+                    
                     startExpressionTree(input);
                     break;
                 case 4:
-                    // Memanggil navigasi lokasi dan jalur kampus dengan Graph milik Anggota 4.
+                    
                     MainGraphNavigation.start(input);
                     break;
                 case 5:
