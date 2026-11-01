@@ -247,6 +247,40 @@ public class GraphNavigation {
         System.out.println();
     }
 
+    // Pencarian BFS tanpa output agar benchmark mengukur pencarian, bukan kecepatan konsol.
+    // Mengembalikan true jika target dapat dijangkau dari lokasi awal, termasuk lokasi awal sendiri.
+    public boolean searchBfs(String startLocation, String targetLocation) {
+        int start = getLocationIndex(startLocation);
+        if (start == -1 || targetLocation == null) {
+            return false;
+        }
+        String target = targetLocation.trim();
+        boolean[] visited = new boolean[locationCount];
+        int[] queue = new int[locationCount];
+        int front = 0;
+        int rear = 0;
+        visited[start] = true;
+        queue[rear++] = start;
+
+        // Antrian FIFO memastikan lokasi diperiksa berdasarkan tingkat kedekatannya.
+        while (front < rear) {
+            int index = queue[front++];
+            if (locations[index].equalsIgnoreCase(target)) {
+                return true;
+            }
+            AdjNode neighbor = adjacencyList[index];
+            while (neighbor != null) {
+                if (!visited[neighbor.destination]) {
+                    // Menandai saat masuk antrian mencegah pengulangan pada graph bersiklus.
+                    visited[neighbor.destination] = true;
+                    queue[rear++] = neighbor.destination;
+                }
+                neighbor = neighbor.next;
+            }
+        }
+        return false;
+    }
+
     //Depth First Search menelusuri jalur sedalam mungkin menggunakan rekursi
     public void dfs(String startLocation) {
         int start = getLocationIndex(startLocation);        //Mencari indeks lokasi yang digunakan sebagai titik awal DFS
