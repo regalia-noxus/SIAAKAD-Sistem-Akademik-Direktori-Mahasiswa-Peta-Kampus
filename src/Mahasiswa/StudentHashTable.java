@@ -1,97 +1,58 @@
-package ExpressionTree;
+package Mahasiswa;
 
-// Package mengikuti folder src/ExpressionTree agar dapat diimpor dari Main.
-public class ExpressionTree {
-    private ExpressionNode root;
+import java.util.HashMap;
+import java.util.Map;
 
-    public ExpressionTree() {
-        this.root = null;
+public class StudentHashTable {
+
+    private HashMap<String, Mahasiswa> table;
+
+    public StudentHashTable() {
+        table = new HashMap<>();
     }
 
-    public void buildTreeFromPostfix(String postfix) {
-        java.util.Stack<ExpressionNode> stack = new java.util.Stack<>();
-        String[] tokens = postfix.split("\\s+");
+    // Berfungsi untuk Menambahkan data mahasiswa
+    public boolean insert(Mahasiswa mahasiswa) {
+        String nim = mahasiswa.getNim();
 
-        for (String token : tokens) {
-            if (isOperator(token)) {
-                ExpressionNode node = new ExpressionNode(token);
-                node.right = stack.pop();
-                node.left = stack.pop();
-                stack.push(node);
-            } else {
-                stack.push(new ExpressionNode(token));
-            }
-        }
-        if (!stack.isEmpty()) {
-            root = stack.pop();
-        }
-    }
-
-    private boolean isOperator(String token) {
-        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
-    }
-
-    public double evaluate() {
-        return evaluateRecursive(root);
-    }
-
-    private double evaluateRecursive(ExpressionNode node) {
-        if (node == null) {
-            return 0;
+        if (table.containsKey(nim)) {
+            return false;
         }
 
-        if (node.left == null && node.right == null) {
-            return Double.parseDouble(node.data);
-        }
-
-        double leftVal = evaluateRecursive(node.left);
-        double rightVal = evaluateRecursive(node.right);
-
-        switch (node.data) {
-            case "+":
-                return leftVal + rightVal;
-            case "-":
-                return leftVal - rightVal;
-            case "*":
-                return leftVal * rightVal;
-            case "/":
-                if (rightVal == 0)
-                    throw new ArithmeticException("Pembagian dengan nol!");
-                return leftVal / rightVal;
-            default:
-                return 0;
-        }
+        table.put(nim, mahasiswa);
+        return true;
     }
 
-    public void inorderTraversal() {
-        System.out.print("Inorder Traversal   : ");
-        inorderRecursive(root);
-        System.out.println();
+    // Berfungsi untuk Mencari mahasiswa berdasarkan NIM
+    public Mahasiswa search(String nim) {
+        return table.get(nim);
     }
 
-    private void inorderRecursive(ExpressionNode node) {
-        if (node != null) {
-            if (node.left != null || node.right != null)
-                System.out.print("(");
-            inorderRecursive(node.left);
-            System.out.print(node.data + " ");
-            inorderRecursive(node.right);
-            if (node.left != null || node.right != null)
-                System.out.print(")");
+    // Berfungsi untuk Menghapus mahasiswa berdasarkan NIM
+    public boolean delete(String nim) {
+        if (table.containsKey(nim)) {
+            table.remove(nim);
+            return true;
         }
+
+        return false;
     }
 
-    public void postorderTraversal() {
-        System.out.print("Postorder Traversal : ");
-        postorderRecursive(root);
-        System.out.println();
-    }
-
-    private void postorderRecursive(ExpressionNode node) {
-        if (node != null) {
-            postorderRecursive(node.left);
-            postorderRecursive(node.right);
-            System.out.print(node.data + " ");
+    // Berfungsi untuk Menampilkan seluruh data mahasiswa
+    public void printTable() {
+        if (table.isEmpty()) {
+            System.out.println("Belum ada data mahasiswa.");
+            return;
         }
+
+        System.out.println("\n===== DAFTAR MAHASISWA =====");
+
+        for (Map.Entry<String, Mahasiswa> entry
+                : table.entrySet()) {
+            System.out.println("----------------------------");
+            System.out.println(entry.getValue());
+        }
+
+        System.out.println("----------------------------");
     }
 }
